@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Component2 from "./Component2";
 
 const Component1 = () => {
-  return (
+
+  const [obj , setObj ] = useState({})
+  console.log(obj)
+
+  const handleInc = () => {
+    setObj({})
+  }
+   return (
     <div>
-      Hey
-      This is in component 1 - <Component2/>
+      <Component2 setObj = {setObj} />
     </div>
   );
 };
