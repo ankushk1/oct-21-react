@@ -6,6 +6,9 @@ import ClassComp from "./components/ClassComp";
 import FuncStateComp from "./components/FuncStateComp";
 import { createContext } from "react";
 import { useState } from "react";
+import ApiComp from "./components/ApiComp";
+import UseReducerComp from "./components/UseReducerComp";
+import FormComp from "./components/FormComp";
 const obj = { num: 3, b: "b" };
 
 //api call /  some data
@@ -22,13 +25,16 @@ function App() {
         {obj}
       </FuncStateComp> */}
       {/* <FuncStateComp name={"Prop name"} obj={obj} /> */}
-     {/* {render && <ClassComp />} */}
+      {/* {render && <ClassComp />} */}
       {/* <messageContext.Provider value={"Hey from the comp App.js"}>
        <Component1/>
       </messageContext.Provider>
       <FuncStateComp/> */}
-      {render &&  <FuncStateComp/>}
-      <button onClick={() => setRender(!render)}>Unmount/Mount</button>
+      {/* {render &&  <FuncStateComp/>}
+      <button onClick={() => setRender(!render)}>Unmount/Mount</button> */}
+      {/* <ApiComp/> */}
+      {/* <UseReducerComp /> */}
+      <FormComp/>
     </div>
   );
 }
