@@ -11,7 +11,7 @@ const UseReducerComp = () => {
     count2: 5
   };
 
-  const reducer = (state, action) => {
+  const reducer = (state = initialState, action) => {
     switch (action.type) {
       case "increment":
         return { ...state, count: state.count + action.value, count2 : state.count2 +  action.value2 };

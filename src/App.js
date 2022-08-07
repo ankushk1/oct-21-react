@@ -9,8 +9,10 @@ import { useState } from "react";
 import ApiComp from "./components/ApiComp";
 import UseReducerComp from "./components/UseReducerComp";
 import FormComp from "./components/FormComp";
-const obj = { num: 3, b: "b" };
+import UseForm from './components/UseForm';
+import UseFetch from "./components/UseFetch";
 
+const obj = { num: 3, b: "b" };
 //api call /  some data
 
 export const messageContext = createContext(null);
@@ -34,7 +36,9 @@ function App() {
       <button onClick={() => setRender(!render)}>Unmount/Mount</button> */}
       {/* <ApiComp/> */}
       {/* <UseReducerComp /> */}
-      <FormComp/>
+      {/* <FormComp/> */}
+      {/* <UseForm/> */}
+      <UseFetch/>
     </div>
   );
 }
