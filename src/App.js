@@ -11,6 +11,7 @@ import UseReducerComp from "./components/UseReducerComp";
 import FormComp from "./components/FormComp";
 import UseForm from './components/UseForm';
 import UseFetch from "./components/UseFetch";
+import ContactApp from "./components/ContactApp";
 
 const obj = { num: 3, b: "b" };
 //api call /  some data
@@ -38,7 +39,8 @@ function App() {
       {/* <UseReducerComp /> */}
       {/* <FormComp/> */}
       {/* <UseForm/> */}
-      <UseFetch/>
+      {/* <UseFetch/> */}
+      <ContactApp/>
     </div>
   );
 }
