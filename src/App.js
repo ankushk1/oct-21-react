@@ -12,6 +12,9 @@ import FormComp from "./components/FormComp";
 import UseForm from './components/UseForm';
 import UseFetch from "./components/UseFetch";
 import ContactApp from "./components/ContactApp";
+import UseRefComp from "./components/UseRefComp";
+import UseMemoComp from "./components/UseMemoComp";
+import UseCallbackComp from "./components/UseCallbackComp";
 
 const obj = { num: 3, b: "b" };
 //api call /  some data
@@ -40,7 +43,10 @@ function App() {
       {/* <FormComp/> */}
       {/* <UseForm/> */}
       {/* <UseFetch/> */}
-      <ContactApp/>
+      {/* <ContactApp/> */}
+      {/* <UseRefComp/> */}
+      {/* <UseMemoComp/> */}
+      <UseCallbackComp/>
     </div>
   );
 }
