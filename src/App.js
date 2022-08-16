@@ -9,12 +9,14 @@ import { useState } from "react";
 import ApiComp from "./components/ApiComp";
 import UseReducerComp from "./components/UseReducerComp";
 import FormComp from "./components/FormComp";
-import UseForm from './components/UseForm';
+import UseForm from "./components/UseForm";
 import UseFetch from "./components/UseFetch";
 import ContactApp from "./components/ContactApp";
 import UseRefComp from "./components/UseRefComp";
 import UseMemoComp from "./components/UseMemoComp";
 import UseCallbackComp from "./components/UseCallbackComp";
+import CounterComp from "./HOC/CounterComp";
+import HoverComp from "./HOC/HoverComp";
 
 const obj = { num: 3, b: "b" };
 //api call /  some data
@@ -46,7 +48,9 @@ function App() {
       {/* <ContactApp/> */}
       {/* <UseRefComp/> */}
       {/* <UseMemoComp/> */}
-      <UseCallbackComp/>
+      {/* <UseCallbackComp/> */}
+      <CounterComp number={5} />
+      <HoverComp  number={15} />
     </div>
   );
 }

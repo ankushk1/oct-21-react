@@ -19,6 +19,7 @@ const UseMemoComp = () => {
   };
   return (
     <div>
+      <h1>Use Memo</h1>
       <div>count = {count}
       <button onClick={increment}>Increment</button>
       </div>
