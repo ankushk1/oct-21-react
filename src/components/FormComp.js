@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar";
 
 const FormComp = () => {
   const [user, setUser] = useState({
@@ -12,7 +13,7 @@ const FormComp = () => {
   };
 
   return (
-    <div>
+    <div className= "form-component">
       <div>
         <p>{user.firstname}</p>
         <p>{user.lastname}</p>
