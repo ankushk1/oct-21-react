@@ -5,9 +5,10 @@ import FormComp from "./components/FormComp";
 import UseMemoComp from "./components/UseMemoComp";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import ApiComp from './components/ApiComp';
+import ApiComp from "./components/ApiComp";
 import FirstRoute from "./components/FirstRoute";
 import SecondRoute from "./components/SecondRoute";
+import CounterRedux from "./components/CounterRedux";
 
 const Routes = () => {
   return (
@@ -19,8 +20,8 @@ const Routes = () => {
           <Route path="/use-memo" exact component={UseMemoComp} />
           <Route path="/contact-app" exact component={ContactApp} />
           <Route path="/api" exact component={ApiComp} />
-          <Route path="/" exact component={FirstRoute} />
           <Route path="/second/:id" exact component={SecondRoute} />
+          <Route path="/" exact component={CounterRedux} />
         </Switch>
       </Router>
     </div>
