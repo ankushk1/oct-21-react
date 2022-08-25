@@ -11,6 +11,8 @@ import SecondRoute from "./components/SecondRoute";
 import CounterRedux from "./components/CounterRedux";
 import Signup from "./BookApp/User/Signup";
 import { ToastContainer, toast } from "react-toastify";
+import Signin from "./BookApp/User/Signin";
+import BooksList from "./BookApp/Book/BooksList";
 
 const Routes = () => {
   return (
@@ -25,6 +27,8 @@ const Routes = () => {
           <Route path="/api" exact component={ApiComp} />
           <Route path="/second/:id" exact component={SecondRoute} /> */}
           <Route path="/" exact component={Signup} />
+          <Route path="/signin" exact component={Signin} />
+          <Route path="/books" exact component={BooksList} />
 
         </Switch>
       </Router>
