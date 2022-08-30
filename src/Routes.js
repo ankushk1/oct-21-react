@@ -13,6 +13,8 @@ import Signup from "./BookApp/User/Signup";
 import { ToastContainer, toast } from "react-toastify";
 import Signin from "./BookApp/User/Signin";
 import BooksList from "./BookApp/Book/BooksList";
+import BookDetail from "./BookApp/Book/BookDetail";
+import BookCreate from "./BookApp/Book/BookCreate";
 
 const Routes = () => {
   return (
@@ -29,6 +31,8 @@ const Routes = () => {
           <Route path="/" exact component={Signup} />
           <Route path="/signin" exact component={Signin} />
           <Route path="/books" exact component={BooksList} />
+          <Route path="/book-detail" exact component={BookDetail} />
+          <Route path="/book-create" exact component={BookCreate} />
 
         </Switch>
       </Router>

@@ -46,3 +46,63 @@ export const getBooks = async () => {
     return err;
   }
 };
+
+export const createBook = async (bookData) => {
+  try {
+    const response = await axios({
+      method: "POST",
+      url: `${api_url}/books/createBook`,
+      headers: {
+        "access-token": localStorage.getItem("token"),
+        'accept': "application/json",
+        "Content-Type": "application/json"
+      },
+      data: {...bookData, author: "62dab99da315f457bb856425"}
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
+
+export const updateBook = async (bookData, id) => {
+  try {
+    const response = await axios({
+      method: "PUT",
+      url: `${api_url}/books/updateBookbyId/${id}`,
+      headers: {
+        "access-token": localStorage.getItem("token"),
+        'accept': "application/json",
+        "Content-Type": "application/json"
+      },
+      data: {...bookData, author: "62dab99da315f457bb856425"}
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
+
+
+
+export const deleteBook = async (id) => {
+  try {
+    const response = await axios({
+      method: "DELETE",
+      url: `${api_url}/books/deleteBookbyId/${id}`,
+      headers: {
+        "access-token": localStorage.getItem("token"),
+        'accept': "application/json",
+        "Content-Type": "application/json"
+      },
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
+
+

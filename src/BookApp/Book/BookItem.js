@@ -1,8 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-const BookItem = ({ name, description, price, author }) => {
+const BookItem = ({ book, name, description, price, author }) => {
+
+  const history = useHistory();
+  const onViewDetails = () => {
+    history.push('/book-detail', {bookData: book} )
+  }
+
   return (
-    <div>
+    <div className="m-4">
       <div className="card card-shadow" style={{ width: "18rem" }}>
         <img
           className="card-img-top"
@@ -17,7 +24,7 @@ const BookItem = ({ name, description, price, author }) => {
           <li className="list-group-item">{author}</li>
           <li className="list-group-item"> ₹{price}</li>
         </ul>
-        <button className="btn btn-info">View Details</button>
+        <button className="btn btn-info" onClick={() => onViewDetails()}>View Details</button>
       </div>
     </div>
   );
