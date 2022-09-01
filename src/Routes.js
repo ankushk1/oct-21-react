@@ -20,7 +20,6 @@ const Routes = () => {
   return (
     <div className="App">
       <Router>
-        {/* <Navbar /> */}
         <ToastContainer/>
         <Switch>
           {/* <Route path="/form" exact component={FormComp} />

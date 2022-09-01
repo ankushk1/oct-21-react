@@ -57,7 +57,7 @@ export const createBook = async (bookData) => {
         'accept': "application/json",
         "Content-Type": "application/json"
       },
-      data: {...bookData, author: "62dab99da315f457bb856425"}
+      data: {...bookData}
     });
     return response;
   } catch (err) {
@@ -76,7 +76,7 @@ export const updateBook = async (bookData, id) => {
         'accept': "application/json",
         "Content-Type": "application/json"
       },
-      data: {...bookData, author: "62dab99da315f457bb856425"}
+      data: {...bookData}
     });
     return response;
   } catch (err) {
@@ -106,3 +106,20 @@ export const deleteBook = async (id) => {
 };
 
 
+export const getAuthors = async () => {
+  try {
+    const response = await axios({
+      method: "GET",
+      url: `${api_url}/author/getAuthors`,
+      headers: {
+        "access-token": localStorage.getItem("token"),
+        'accept': "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}

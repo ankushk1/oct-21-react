@@ -1,9 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 import { signin } from "../../utils/ApiUtils";
 import { useFormHook } from "../../utils/CustomHooks";
 import { error, success } from "../../utils/Toast";
-
 
 const Signin = () => {
   const { values, onHandleChange } = useFormHook();
@@ -11,17 +11,18 @@ const Signin = () => {
 
   const onSubmit = async () => {
     const apiResponse = await signin(values);
-    if(apiResponse.status === 200) {
-      success(apiResponse.data.message)
-      localStorage.setItem("token", apiResponse.data.token)
-      history.push('/books')
-    } else{
-      error(apiResponse.response.data.message)
+    if (apiResponse.status === 200) {
+      success(apiResponse.data.message);
+      localStorage.setItem("token", apiResponse.data.token);
+      history.push("/books");
+    } else {
+      error(apiResponse.response.data.message);
     }
-  }
+  };
 
   return (
     <div>
+      <Navbar />
       <h4 className="my-5">Signin</h4>
       <div>
         <form className="d-flex flex-column align-items-center ">

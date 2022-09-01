@@ -1,46 +1,27 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 
 const Navbar = () => {
+  const history = useHistory();
+  const token = localStorage.getItem("token");
+  const onSignOut = () => {
+    localStorage.removeItem("token");
+    history.push("/signin");
+  };
+
   return (
     <div>
-      <ul className="d-flex justify-content-evenly">
-        
-        <li style={{ listStyle: "none" }}>
-          <NavLink
-            activeClassName="border border-dark bg bg-warning"
-            style={{ textDecoration: "none", color: "black" }}
-            to="/use-memo"
-          >
-            Use Memo
-          </NavLink>
-        </li>
-        <li style={{ listStyle: "none" }}>
-          <NavLink
-            style={{ textDecoration: "none", color: "black" }}
-            to="/form"
-            activeClassName="border border-dark bg bg-warning"
-          >
-            Form Comp
-          </NavLink>
-        </li>
-        <li style={{ listStyle: "none" }}>
-          <NavLink
-            // style={{ textDecoration: "none", color: "black" }}
-            to="/api"
-            // activeClassName="border border-dark bg bg-warning"
-            // activeStyle={{
-            //   fontWeight: "bold",
-            //   backgroundColor: "yellow"
-            // }}
-            style={isActive => ({
-              color: isActive ? "green" : "blue",
-              textDecoration: "none",
-            })}
-          >
-            Api Comp
-          </NavLink>
-        </li>
+      <ul className="d-flex justify-content-between container mt-3">
+        <div>
+          <h3>Books Store</h3>
+        </div>
+        <div>
+          {token && (
+            <button className="btn btn-danger" onClick={() => onSignOut()}>
+              Sign Out
+            </button>
+          )}
+        </div>
       </ul>
     </div>
   );
