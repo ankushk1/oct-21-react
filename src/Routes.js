@@ -15,6 +15,8 @@ import Signin from "./BookApp/User/Signin";
 import BooksList from "./BookApp/Book/BooksList";
 import BookDetail from "./BookApp/Book/BookDetail";
 import BookCreate from "./BookApp/Book/BookCreate";
+import AuthorCreate from "./BookApp/Author/AuthorCreate";
+import Cart from "./BookApp/Book/Cart";
 
 const Routes = () => {
   return (
@@ -32,6 +34,8 @@ const Routes = () => {
           <Route path="/books" exact component={BooksList} />
           <Route path="/book-detail" exact component={BookDetail} />
           <Route path="/book-create" exact component={BookCreate} />
+          <Route path="/author-create" exact component={AuthorCreate} />
+          <Route path="/cart" exact component={Cart} />
 
         </Switch>
       </Router>

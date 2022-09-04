@@ -58,7 +58,7 @@ const BooksList = () => {
     } else {
       setBooks(sortedData.reverse());
     }
-    setSort(!sort)
+    setSort(!sort);
   };
 
   return (
@@ -119,9 +119,12 @@ const BooksList = () => {
             </button>
             <button
               className="btn btn-info ms-2"
-              onClick={() => history.push("/book-create")}
+              onClick={() => history.push("/author-create")}
             >
               Create Author
+            </button>
+            <button className="btn btn-outline-primary ms-2" onClick={()=> history.push('/cart')}>
+              <i class="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
         </div>

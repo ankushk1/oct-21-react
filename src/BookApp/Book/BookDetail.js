@@ -6,18 +6,26 @@ const BookDetail = (props) => {
   const { name, description, price } = props.location.state.bookData;
 
   const onBookUpdate = () => {
-    props.history.push('/book-create',  props.location.state.bookData)
-  }
+    props.history.push("/book-create", props.location.state.bookData);
+  };
 
   const onBookDelete = async () => {
-    const apiResponse = await deleteBook( props.location.state.bookData._id);
+    const apiResponse = await deleteBook(props.location.state.bookData._id);
     if (apiResponse.status === 200) {
       success(apiResponse.data.message);
       props.history.push("/books");
     } else {
       error(apiResponse.response.data.message);
     }
-  }
+  };
+
+  const onAddToCart = () => {
+    const cardData = JSON.parse(localStorage.getItem("cart")) ?? [];
+    cardData.push(props.location.state.bookData);
+    localStorage.setItem("cart", JSON.stringify(cardData));
+    success("Item Added to cart");
+    props.history.push("/cart")
+  };
 
   return (
     <div className="container mt-3">
@@ -50,16 +58,31 @@ const BookDetail = (props) => {
                 Author Age- {props.location.state.bookData.author.age}
               </li>
               <li className="list-group-item"> ₹{price}</li>
+              <li className="list-group-item">
+                <button
+                  className="btn btn-outline-success"
+                  onClick={() => onAddToCart()}
+                >
+                  Add to Cart
+                </button>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-3 d-flex justify-content-center">
           <div>
-            <button className="btn btn-warning mx-5" onClick={() => onBookUpdate()}>Update</button>
+            <button
+              className="btn btn-warning mx-5"
+              onClick={() => onBookUpdate()}
+            >
+              Update
+            </button>
           </div>
           <div>
-            <button className="btn btn-danger" onClick={() => onBookDelete()}>Delete</button>
+            <button className="btn btn-danger" onClick={() => onBookDelete()}>
+              Delete
+            </button>
           </div>
         </div>
       </div>

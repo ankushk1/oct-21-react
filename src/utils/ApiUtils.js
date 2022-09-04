@@ -123,3 +123,23 @@ export const getAuthors = async () => {
     return err;
   }
 }
+
+
+export const createAuthor = async (data) => {
+  try {
+    const response = await axios({
+      method: "POST",
+      url: `${api_url}/author/createAuthor`,
+      headers: {
+        "access-token": localStorage.getItem("token"),
+        'accept': "application/json",
+        "Content-Type": "application/json"
+      },
+      data: data
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};

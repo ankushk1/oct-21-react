@@ -11,8 +11,8 @@
   justify-content: space-evenly;
 }
 
-
-.form-component{
-
-  
+.back-btn{
+  height: 40px;
+  width: 100px;
+  margin-left: 100px;
 }

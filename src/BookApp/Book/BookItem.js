@@ -1,12 +1,19 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { success } from "../../utils/Toast";
 
 const BookItem = ({ book, name, description, price, author }) => {
-
   const history = useHistory();
   const onViewDetails = () => {
-    history.push('/book-detail', {bookData: book} )
-  }
+    history.push("/book-detail", { bookData: book });
+  };
+
+  const onAddToCart = () => {
+    const cardData = JSON.parse(localStorage.getItem("cart")) ?? [];
+    cardData.push(book);
+    localStorage.setItem("cart", JSON.stringify(cardData));
+    success('Item Added to cart')
+  };
 
   return (
     <div className="m-4">
@@ -24,7 +31,17 @@ const BookItem = ({ book, name, description, price, author }) => {
           <li className="list-group-item">{author}</li>
           <li className="list-group-item"> ₹{price}</li>
         </ul>
-        <button className="btn btn-info" onClick={() => onViewDetails()}>View Details</button>
+        <div>
+          <button
+            className="btn btn-info me-3 my-2"
+            onClick={() => onViewDetails()}
+          >
+            View Details
+          </button>
+          <button className="btn btn-outline-success" onClick={() => onAddToCart()}>
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );

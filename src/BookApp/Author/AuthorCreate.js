@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { getBooksData } from "../../actions/bookaActions";
-import { createBook, getAuthors, updateBook } from "../../utils/ApiUtils";
+import { createAuthor, createBook, getAuthors, updateBook } from "../../utils/ApiUtils";
 import { useFormHook } from "../../utils/CustomHooks";
 import { error, success } from "../../utils/Toast";
 import Form from "react-bootstrap/Form";
 
-const BookCreate = (props) => {
+const AuthorCreate = (props) => {
   const bookObj = props.location.state;
   const [authors, setAuthors] = useState([]);
 
   const { values, onHandleChange, setValues } = useFormHook();
-  console.log(values);
   // const dispatch = useDispatch();
   const onSubmit = async () => {
-    const apiResponse = await createBook(values);
+    const apiResponse = await createAuthor(values);
     if (apiResponse.status === 200) {
       success(apiResponse.data.message);
       props.history.push("/books");
@@ -37,9 +36,7 @@ const BookCreate = (props) => {
       const bookData = { ...values };
       bookData.name = bookObj.name;
       bookData.description = bookObj.description;
-      bookData.price = bookObj.price;
-      bookData.quantity = bookObj.quantity;
-      bookData.published_year = bookObj.published_year;
+      bookData.age = bookObj.age;
       setValues(bookData);
     }
   }, [bookObj]);
@@ -55,7 +52,8 @@ const BookCreate = (props) => {
     <div className="row my-5">
       <div className="col-2 btn btn-info back-btn" onClick={()=> props.history.push('/books')}>Back</div>
       <div className="col-8">
-        <h4 className="">{bookObj ? "Update Book" : "Add Book"}</h4>
+        {/* <h4 className="">{bookObj ? "Update Book" : "Add Book"}</h4> */}
+        <h4 className="">Add Author</h4>
         <div>
           <form className="d-flex flex-column align-items-center ">
             <input
@@ -76,42 +74,14 @@ const BookCreate = (props) => {
             />
             <input
               type="number"
-              name="price"
-              placeholder="price"
-              value={values.price}
+              name="age"
+              placeholder="age"
+              value={values.age}
               onChange={(event) => onHandleChange(event)}
               className="form-control w-50 mt-2"
             />
-            <input
-              type="number"
-              name="quantity"
-              placeholder="quantity"
-              value={values.quantity}
-              onChange={(event) => onHandleChange(event)}
-              className="form-control w-50 mt-2"
-            />
-            <input
-              type="text"
-              name="published_year"
-              placeholder="Published Year"
-              value={values.published_year}
-              onChange={(event) => onHandleChange(event)}
-              className="form-control w-50 mt-2"
-            />
-            <Form.Select
-              className="w-50 mt-2"
-              aria-label="Default select example"
-              onChange={(event) =>
-                setValues({ ...values, author: event.target.value })
-              }
-            >
-              {/* <option>Authors</option> */}
-              {authors.map((author) => (
-                <option value={author._id}>{author.name}</option>
-              ))}
-            </Form.Select>
           </form>
-          {bookObj ? (
+          {/* {bookObj ? (
             <button className="btn btn-warning mt-3" onClick={onUpdate}>
               Update
             </button>
@@ -119,7 +89,10 @@ const BookCreate = (props) => {
             <button className="btn btn-primary mt-3" onClick={onSubmit}>
               Create
             </button>
-          )}
+          )} */}
+          <button className="btn btn-primary mt-3" onClick={onSubmit}>
+              Create
+            </button>
         </div>
       </div>
       <div className="col-2"></div>
@@ -127,4 +100,4 @@ const BookCreate = (props) => {
   );
 };
 
-export default BookCreate;
+export default AuthorCreate;
