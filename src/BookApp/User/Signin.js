@@ -13,7 +13,9 @@ const Signin = () => {
     const apiResponse = await signin(values);
     if (apiResponse.status === 200) {
       success(apiResponse.data.message);
+      console.log(apiResponse.data)
       localStorage.setItem("token", apiResponse.data.token);
+      localStorage.setItem("user", JSON.stringify(apiResponse.data.user));
       history.push("/books");
     } else {
       error(apiResponse.response.data.message);

@@ -17,6 +17,7 @@ import BookDetail from "./BookApp/Book/BookDetail";
 import BookCreate from "./BookApp/Book/BookCreate";
 import AuthorCreate from "./BookApp/Author/AuthorCreate";
 import Cart from "./BookApp/Book/Cart";
+import CustomRoute from "./utils/CustomRoute";
 
 const Routes = () => {
   return (
@@ -31,12 +32,11 @@ const Routes = () => {
           <Route path="/second/:id" exact component={SecondRoute} /> */}
           <Route path="/" exact component={Signup} />
           <Route path="/signin" exact component={Signin} />
-          <Route path="/books" exact component={BooksList} />
-          <Route path="/book-detail" exact component={BookDetail} />
-          <Route path="/book-create" exact component={BookCreate} />
-          <Route path="/author-create" exact component={AuthorCreate} />
-          <Route path="/cart" exact component={Cart} />
-
+          <CustomRoute path="/books" exact component={BooksList} />
+          <CustomRoute path="/book-detail" exact component={BookDetail} />
+          <CustomRoute path="/book-create" exact component={BookCreate} />
+          <CustomRoute path="/author-create" exact component={AuthorCreate} />
+          <CustomRoute path="/cart" exact component={Cart} />
         </Switch>
       </Router>
     </div>

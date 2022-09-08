@@ -4,7 +4,7 @@ import { error, success } from "../../utils/Toast";
 
 const BookDetail = (props) => {
   const { name, description, price } = props.location.state.bookData;
-
+  const user = JSON.parse(localStorage.getItem("user"));
   const onBookUpdate = () => {
     props.history.push("/book-create", props.location.state.bookData);
   };
@@ -24,7 +24,7 @@ const BookDetail = (props) => {
     cardData.push(props.location.state.bookData);
     localStorage.setItem("cart", JSON.stringify(cardData));
     success("Item Added to cart");
-    props.history.push("/cart")
+    props.history.push("/cart");
   };
 
   return (
@@ -70,21 +70,23 @@ const BookDetail = (props) => {
           </div>
         </div>
 
-        <div className="mt-3 d-flex justify-content-center">
-          <div>
-            <button
-              className="btn btn-warning mx-5"
-              onClick={() => onBookUpdate()}
-            >
-              Update
-            </button>
+        {user.role === "SA" && (
+          <div className="mt-3 d-flex justify-content-center">
+            <div>
+              <button
+                className="btn btn-warning mx-5"
+                onClick={() => onBookUpdate()}
+              >
+                Update
+              </button>
+            </div>
+            <div>
+              <button className="btn btn-danger" onClick={() => onBookDelete()}>
+                Delete
+              </button>
+            </div>
           </div>
-          <div>
-            <button className="btn btn-danger" onClick={() => onBookDelete()}>
-              Delete
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

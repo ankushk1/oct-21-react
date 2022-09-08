@@ -5,7 +5,7 @@ const Navbar = () => {
   const history = useHistory();
   const token = localStorage.getItem("token");
   const onSignOut = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     history.push("/signin");
   };
 

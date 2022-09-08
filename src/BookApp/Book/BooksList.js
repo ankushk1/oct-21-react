@@ -8,6 +8,8 @@ import { error, success } from "../../utils/Toast";
 import BookItem from "./BookItem";
 
 const BooksList = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user)
   const [books, setBooks] = useState([]);
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
@@ -111,19 +113,27 @@ const BooksList = () => {
             <h4 className="">Books</h4>
           </div>
           <div className="col-3">
+            {console.log(user.role)}
+            {user.role === "SA" && (
+              <>
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => history.push("/book-create")}
+                >
+                  Create Book
+                </button>
+                <button
+                  className="btn btn-info ms-2"
+                  onClick={() => history.push("/author-create")}
+                >
+                  Create Author
+                </button>
+              </>
+            )}
             <button
-              className="btn btn-secondary"
-              onClick={() => history.push("/book-create")}
+              className="btn btn-outline-primary ms-2"
+              onClick={() => history.push("/cart")}
             >
-              Create Book
-            </button>
-            <button
-              className="btn btn-info ms-2"
-              onClick={() => history.push("/author-create")}
-            >
-              Create Author
-            </button>
-            <button className="btn btn-outline-primary ms-2" onClick={()=> history.push('/cart')}>
               <i class="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
