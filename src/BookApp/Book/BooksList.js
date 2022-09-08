@@ -15,7 +15,7 @@ const BooksList = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const booksSelector = useSelector(
-    (state) => state.booksDataFromStore.booksDataFromReducer
+    (state) => state?.booksDataFromStore?.booksDataFromReducer
   );
   const [sort, setSort] = useState(false);
 
@@ -24,12 +24,12 @@ const BooksList = () => {
   }, []);
 
   useEffect(() => {
-    setBooks(booksSelector.booksData);
+    setBooks(booksSelector?.booksData);
   }, [booksSelector]);
 
   useEffect(() => {
     if (searchText === "") {
-      setBooks(booksSelector.booksData);
+      setBooks(booksSelector?.booksData);
       return;
     }
     const filterArr = books.filter((book) => {
@@ -140,7 +140,7 @@ const BooksList = () => {
         </div>
         <div className="d-flex flex-wrap justify-content-around mt-4">
           {books &&
-            books.length &&
+            books.length ?
             books.map((book, i) => (
               <BookItem
                 key={i}
@@ -150,7 +150,7 @@ const BooksList = () => {
                 price={book.price}
                 author={book.author.name}
               />
-            ))}
+            )) : "No books Available"}
         </div>
       </div>
     </>

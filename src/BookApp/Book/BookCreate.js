@@ -105,7 +105,7 @@ const BookCreate = (props) => {
                 setValues({ ...values, author: event.target.value })
               }
             >
-              {/* <option>Authors</option> */}
+              <option>Authors</option>
               {authors.map((author) => (
                 <option value={author._id}>{author.name}</option>
               ))}
